@@ -2,6 +2,5 @@ streamlit
 pandas
 numpy
 joblib
-sqlite3==3.42.0
 skleran
 datetime

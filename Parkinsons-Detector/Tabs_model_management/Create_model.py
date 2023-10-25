@@ -25,7 +25,7 @@ def app():
 
     def createconnection():
         global conn,cursor
-        conn = sqlite3.connect('pakinson_admin.db')
+        conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
         cursor = conn.cursor()
 
     def checking_input(Model_title, fold):

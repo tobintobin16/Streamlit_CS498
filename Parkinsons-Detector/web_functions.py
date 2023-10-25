@@ -19,7 +19,7 @@ def load_data():
     """This function returns the preprocessed data"""
 
     # Load the Diabetes dataset into DataFrame.
-    df = pd.read_csv('Parkinson.csv')
+    df = pd.read_csv('Parkinsons-Detector/Parkinson.csv')
 
     # Rename the column names in the DataFrame.
     df.rename(columns = {"MDVP:Fo(Hz)": "AVFF",}, inplace = True)

@@ -7,7 +7,7 @@ def app():
     st.title("Edit model")
 
     def connect_database():
-            with sqlite3.connect("pakinson_admin.db") as db:
+            with sqlite3.connect("Parkinsons-Detector/pakinson_admin.db") as db:
                 c = db.cursor()
             choose_algo = c.execute('select * from model order by f1_score desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
             model_algo = choose_algo.fetchall()
@@ -18,7 +18,7 @@ def app():
         model_algo = connect_database()
 
         def change_model_name():
-            conn = sqlite3.connect('pakinson_admin.db')
+            conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             c = conn.cursor()
 
             c.execute("UPDATE model SET model_name = ? WHERE model_id = ?", (changename, selected_model))
@@ -47,7 +47,7 @@ def app():
 
     def delete_UI():
         def deleteconfirm():
-            connd = sqlite3.connect('pakinson_admin.db')
+            connd = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             cursord = connd.cursor()
 
             cursord.execute('DELETE FROM model WHERE model_id=?', (int(selected_model),))

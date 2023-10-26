@@ -12,6 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 import sqlite3
 import joblib
+import os
 
 
 @st.cache_data
@@ -77,15 +78,10 @@ def predict(features, algorithm):
     exc = cursor.execute("SELECT model_path, accuracy FROM model WHERE m_default=? AND algorithm=?", ("1",algorithm))
     model = exc.fetchall()
 
-    print("-"*30)
-    print(model[0][0])
-    print(model[0][1])
+    file_path = model[0][0]+".joblib"
     # Deserialize the model from the file
     # model_path = model[0][0]
-    loaded_model = joblib.load(model[0][0])
-    print("-"*30)
-    print(loaded_model)
-    print("-"*30)
+    loaded_model = joblib.load(file_path)
     # Predict the value
     prediction = loaded_model.predict([features])
 

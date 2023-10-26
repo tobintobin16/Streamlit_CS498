@@ -78,7 +78,7 @@ def predict(features, algorithm):
     exc = cursor.execute("SELECT model_path, accuracy FROM model WHERE m_default=? AND algorithm=?", ("1",algorithm))
     model = exc.fetchall()
 
-    file_path = model[0][0]+".joblib"
+    file_path = Parkinsons-Detector/model[0][0]
     # Deserialize the model from the file
     # model_path = model[0][0]
     loaded_model = joblib.load(file_path)

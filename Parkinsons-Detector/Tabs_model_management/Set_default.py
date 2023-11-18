@@ -9,7 +9,7 @@ def app():
     st.markdown("<hr style='margin-top: -1px; margin-bottom: 1px;'>", unsafe_allow_html=True)
 
     def connect_database():
-        with sqlite3.connect("pakinson_admin.db") as db:
+        with sqlite3.connect("Parkinsons-Detector/pakinson_admin.db") as db:
             c = db.cursor()
         choose_algo = c.execute('select * from model order by f1_score desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
         model_algo = choose_algo.fetchall()
@@ -23,7 +23,7 @@ def app():
             default_key = default_model
             theAlgo = default_option
 
-            conn = sqlite3.connect('pakinson_admin.db')
+            conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             cursor = conn.cursor()
 
             cursor.execute(f"UPDATE model SET m_default = ? WHERE algorithm = ?",("0",theAlgo))  # Assuming there's only one column "m_default" in the result

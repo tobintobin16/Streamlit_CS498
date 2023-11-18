@@ -77,7 +77,7 @@ def app():
         adminID = get_admID[0][0]
 
         name = "model"+str(count_cm)
-        save_model = os.path.join("models", name + '.joblib')
+        save_model = os.path.join("Parkinsons-Detector/" + "models", name + '.joblib')
         joblib.dump(model, save_model)
         model_path = name+ '.joblib'
 

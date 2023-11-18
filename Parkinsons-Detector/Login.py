@@ -3,7 +3,7 @@ import sqlite3
 
 
 def creds_entered():
-    with sqlite3.connect("pakinson_admin.db") as db:
+    with sqlite3.connect("Parkinsons-Detector/pakinson_admin.db") as db:
         c = db.cursor()
     adminname = st.session_state['aduser'].strip()
     adminpass = st.session_state['adpasswd'].strip()

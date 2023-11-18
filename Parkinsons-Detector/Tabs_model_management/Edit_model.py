@@ -97,7 +97,7 @@ def app():
             c = conn.cursor()
 
             if checked:
-                the_model =  os.path.join("models" +"/"+ str(selected_path))
+                the_model =  os.path.join("Parkinsons-Detector/" + "models" +"/"+ str(selected_path))
                 # Check if the file exists
                 if os.path.exists(the_model):
                     # If the file exists, remove it
@@ -140,7 +140,7 @@ def app():
             connd = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             cursord = connd.cursor()
 
-            d_model = os.path.join("models" +"/"+ str(selected_path))
+            d_model = os.path.join("Parkinsons-Detector/" + "models" +"/"+ str(selected_path))
             # Check if the file exists
             if os.path.exists(d_model):
                 # If the file exists, remove it

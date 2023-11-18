@@ -23,7 +23,7 @@ def app():
     st.markdown("<hr style='margin-top: -1px; margin-bottom: 1px;'>", unsafe_allow_html=True)
 
     def connect_database():
-            with sqlite3.connect("pakinson_admin.db") as db:
+            with sqlite3.connect("Parkinsons-Detector/pakinson_admin.db") as db:
                 c = db.cursor()
             choose_algo = c.execute('select * from model order by f1_score desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
             model_algo = choose_algo.fetchall()
@@ -85,7 +85,7 @@ def app():
         checked = False
 
         def non_impact():
-            conn = sqlite3.connect('pakinson_admin.db')
+            conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             c = conn.cursor()
             c.execute("UPDATE model SET model_name=? WHERE model_id = ?", (changename, selected_model))
             conn.commit()
@@ -93,7 +93,7 @@ def app():
             st.success('Successfully')
 
         def model_impact():
-            conn = sqlite3.connect('pakinson_admin.db')
+            conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             c = conn.cursor()
 
             if checked:
@@ -137,7 +137,7 @@ def app():
             
     def delete_UI():
         def deleteconfirm():
-            connd = sqlite3.connect('pakinson_admin.db')
+            connd = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
             cursord = connd.cursor()
 
             d_model = os.path.join("models" +"/"+ str(selected_path))

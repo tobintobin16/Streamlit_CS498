@@ -18,7 +18,7 @@ import joblib
 @st.cache_data
 def load_data(uploaded_file):
     """This function returns the preprocessed data"""
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv("Parkinsons-Detector/" + uploaded_file)
 
     # Rename the column names in the DataFrame.
     df.rename(columns = {"MDVP:Fo(Hz)": "AVFF",}, inplace = True)
@@ -76,7 +76,7 @@ def predict(features, algorithm):
     model = exc.fetchall()
 
     # Deserialize the model from the file
-    model_path = "models" + "/" + model[0][0]
+    model_path = "Parkinsons-Detector/models" + "/" + model[0][0]
     loaded_model = joblib.load(model_path)
     # Predict the value
     prediction = loaded_model.predict([features])

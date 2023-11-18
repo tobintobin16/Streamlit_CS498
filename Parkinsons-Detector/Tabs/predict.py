@@ -103,7 +103,7 @@ spread1,spread2,PPE - Three nonlinear measures of fundamental frequency variatio
     display_text_input(col2,"D2", "d2")
 
     #Check if dataset has Gender and Age
-    conn = sqlite3.connect('pakinson_admin.db')
+    conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
     cursor = conn.cursor()
     exc = cursor.execute("SELECT dataset_path FROM model WHERE m_default=? AND algorithm=?", ("1",algorithm))
     checked = exc.fetchall()

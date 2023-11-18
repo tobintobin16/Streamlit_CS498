@@ -35,7 +35,7 @@ status - Health status of the subject (one) - Parkinson's, (zero) - healthy\n
 RPDE,D2 - Two nonlinear dynamical complexity measures\n
 DFA - Signal fractal scaling exponent\n
 spread1,spread2,PPE - Three nonlinear measures of fundamental frequency variation""")
-    algorithm = st.selectbox('Select Algorithm',('Random Forest', 'Support vector machine', 'Decision Tree', 'K nearest neighbor', 'Naive Bayes'))
+    algorithm = st.selectbox('Select Algorithm',('Random Forest', 'Support vector machine', 'Decision Tree', 'K nearest neighbor', "Naive Bayes", "Logistic Regression", "Gradient Boosting", "XGBClassifier"))
     # Take feature input from the user
     # Add a subheader
     st.subheader("Input Values:")

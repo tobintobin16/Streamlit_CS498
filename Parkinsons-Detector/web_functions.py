@@ -70,7 +70,7 @@ def sampling_function(sampling, X, y):
 
 def predict(features, algorithm):
     # Get model and model score
-    conn = sqlite3.connect('pakinson_admin.db')
+    conn = sqlite3.connect('Parkinsons-Detector/pakinson_admin.db')
     cursor = conn.cursor()
     exc = cursor.execute("SELECT model_path, accuracy FROM model WHERE m_default=? AND algorithm=?", ("1",algorithm))
     model = exc.fetchall()

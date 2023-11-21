@@ -46,7 +46,6 @@ def Authenticate_user():
 
 def logout():
     st.session_state['authenticated'] = False
-hello gg
     
 
 

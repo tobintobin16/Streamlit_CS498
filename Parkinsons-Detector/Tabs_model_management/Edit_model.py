@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import sqlite3
 import pandas as pd
+import subprocess
 from web_functions import train_model , load_data, sampling_function
 import numpy as np
 
@@ -150,6 +151,8 @@ def app():
             connd.commit()
             connd.close()
             st.success('The model has been deteted')
+            subprocess.run(['git', 'commit', '-m', 'parkinson_admin.db'], check=True)
+            subprocess.run(['git', 'push', 'origin', 'main'], check=True)
 
         # Add custom CSS to style the button
         delete_button = st.button("Delete Model")

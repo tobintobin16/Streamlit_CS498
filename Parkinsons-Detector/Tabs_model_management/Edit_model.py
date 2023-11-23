@@ -150,7 +150,6 @@ def app():
             cursord.execute('DELETE FROM model WHERE model_id=?', (int(selected_model),))
             connd.commit()
             connd.close()
-            git_lfs_push('parkinson_admin.db')
             st.success('The model has been deteted')
             
 
@@ -178,23 +177,5 @@ def app():
 
     selected_option, selected_model =  edit_UI()
     delete_UI()
-    
-    def git_lfs_push(file_path):
-        try:
-            # Add the file to Git LFS
-            subprocess.run(['git', 'lfs', 'track', file_path], check=True)
-            
-            # Add the file to staging area
-            subprocess.run(['git', 'add', file_path], check=True)
-            
-            # Commit changes
-            subprocess.run(['git', 'commit', '-m', 'Add database file'], check=True)
-            
-            # Push changes to the remote repository
-            subprocess.run(['git', 'push', 'origin', 'main'], check=True)
-            
-            print(f"Database file '{file_path}' pushed to the repository.")
-        except subprocess.CalledProcessError as e:
-            print(f"Error: {e}")
     
     

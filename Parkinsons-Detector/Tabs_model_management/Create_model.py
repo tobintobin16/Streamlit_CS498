@@ -32,7 +32,7 @@ def app():
     receive_algo = st.selectbox('Select Algorithm',('Random Forest', 'Support vector machine', 'Decision Tree', 'K nearest neighbor', "Naive Bayes", "Logistic Regression", "Gradient Boosting", "XGBClassifier"))
     sampling_radio = st.radio(
     "Select Sampling Techniques",
-    ["Over samling", "Under samling", "None"], horizontal=True)
+    ["Over samling", "Under samling", "None"], horizontal=True, index=2)
     fold = st.text_input("Input K (For K-Fold cross validation )")
     algorithm = None        
 

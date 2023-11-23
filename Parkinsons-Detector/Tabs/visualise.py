@@ -64,7 +64,7 @@ def app(df, X, y):
         plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
         st.pyplot()
         
-    if st.checkbox("Number of Patients Effected"):
+    if st.checkbox("Ferquencies by Status"):
         plt.figure(figsize=(10, 6))
         df.status.hist()
         plt.xlabel('status')
@@ -72,5 +72,30 @@ def app(df, X, y):
         st.pyplot()
         # The dataset has high number of patients effected with Parkinson's disease.
 
+    if st.checkbox("NHR by Status"):
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x="status",y="NHR",data=df)
+        st.pyplot()
+        # The patients effected with Parkinson's disease have high NHR that is the measures of ratio of noise to tonal components in the voice.
+
+    if st.checkbox("RPED by Status"):
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x="status",y="RPDE",data=df)
+        st.pyplot()
+        # The nonlinear dynamical complexity measure RPDE is high in the patients effected with Parkinson's disease.
+
+    if st.checkbox("Distribution plot"):
+        rows=3
+        cols=7
+        fig, ax=plt.subplots(nrows=rows,ncols=cols,figsize=(16,4))
+        col=df.columns
+        index=1
+        for i in range(rows):
+            for j in range(cols):
+                sns.distplot(df[col[index]],ax=ax[i][j])
+                index=index+1
+
+        plt.tight_layout()
+        st.pyplot()
     
     

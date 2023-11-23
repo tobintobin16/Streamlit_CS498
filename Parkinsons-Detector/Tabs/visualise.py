@@ -63,5 +63,14 @@ def app(df, X, y):
         colors = sns.color_palette('pastel')[0:7]
         plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
         st.pyplot()
+        
+    if st.checkbox("Number of Patients Effected"):
+        plt.figure(figsize=(10, 6))
+        df.status.hist()
+        plt.xlabel('status')
+        plt.ylabel('Frequencies')
+        st.pyplot()
+        # The dataset has high number of patients effected with Parkinson's disease.
 
+    
     

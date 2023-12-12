@@ -26,7 +26,7 @@ def app():
     def connect_database():
             with sqlite3.connect("Parkinsons-Detector/pakinson_admin.db") as db:
                 c = db.cursor()
-            choose_algo = c.execute('select * from model order by f1_score desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
+            choose_algo = c.execute('select * from model order by date desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
             model_algo = choose_algo.fetchall()
             c.close()
             return model_algo

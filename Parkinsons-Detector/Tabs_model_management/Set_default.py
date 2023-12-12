@@ -11,7 +11,7 @@ def app():
     def connect_database():
         with sqlite3.connect("Parkinsons-Detector/pakinson_admin.db") as db:
             c = db.cursor()
-        choose_algo = c.execute('select * from model order by date desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
+        choose_algo = c.execute(f'select * from model order by date desc')#ดึงข้อมูลทุกคอลัมน์มา เรียงตาม f1 score
         model_algo = choose_algo.fetchall()
         c.close()
         return model_algo
@@ -47,7 +47,7 @@ def app():
     
         check_view = st.checkbox("View Summary", value=True)
         if check_view:
-            filtered_data = df[df['algorithm'] == default_option]
+            filtered_data = df[df['algorithm'] == default_option]            
             st.write(filtered_data)
 
         if check_view or check_default:

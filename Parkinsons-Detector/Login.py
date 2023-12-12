@@ -20,6 +20,8 @@ def Authenticate_user():
     if st.session_state.authenticated:
         return None
 
+    title = st.title("Login")
+    line = st.markdown("<hr style='margin-top: -1px; margin-bottom: 1px;'>", unsafe_allow_html=True)
     username_placeholder = st.empty()
     password_placeholder = st.empty()
     submit_button_placeholder = st.empty()
@@ -36,6 +38,8 @@ def Authenticate_user():
             if result:
                 st.session_state['authenticated'] = True
                 # Clear the placeholders to hide the form
+                title.empty()
+                line.empty()
                 username_placeholder.empty()
                 password_placeholder.empty()
                 submit_button_placeholder.empty()
